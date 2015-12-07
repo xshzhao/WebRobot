@@ -134,3 +134,5 @@ print 'begin......'
 url = 'http://www.iteye.com'
 robot = NormalRobot("网络机器人", url, 5)
 robot.do_it()
+
+#do something
