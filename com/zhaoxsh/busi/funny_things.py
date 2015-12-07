@@ -119,3 +119,5 @@ if __name__ == '__main__':
         category = 'hot'
     funnyThings = FunnyThings(category)
     funnyThings.start()
+
+# dev commit
