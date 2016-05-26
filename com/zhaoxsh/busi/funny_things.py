@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python2.7
 # -*- coding=utf-8 -*-
 
 
@@ -17,7 +17,7 @@ import urllib2
 
 class FunnyThings:
     def __init__(self, funny_type):
-        self.baseUrl = 'http://www.qiushibaike.com/' + funny_type + '/page'
+        self.baseUrl = 'http://www.qiushibaike.com/' + funny_type + ''
         self.pageIndex = 0
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)'
@@ -40,7 +40,7 @@ class FunnyThings:
     def get_page_items(self):
         html_str = self.load_page(self.pageIndex)
         pattern_str = '<div class="article block untagged mb15".*?<h2>(.*?)' \
-                      '</h2>.*?<div class="content">(.*?)<!--(.*?)-->.*?' \
+                      '</h2>.*?<div class="content">(.*?)' \
                       '</div>.*?<div class="stats">.*?class="number">(.*?)</i>(.*?)' \
                       '</span>.*?<span class="dash">.*?class="number">(.*?)</i>(.*?)</a>.*?</div>'
         pattern = re.compile(pattern_str, re.S)
@@ -52,11 +52,7 @@ class FunnyThings:
             content = deal_html_tag(item[1].strip())
             stories.append([item[0].strip(),
                             content,
-                            date,
-                            item[3].strip(),
-                            item[4].strip(),
-                            item[5].strip(),
-                            item[6].strip()])
+                            date])
         return stories
 
     # 将段子列表写入全局变量
@@ -73,8 +69,8 @@ class FunnyThings:
                 self.enable = False
                 return
             print '-----------------------------------------------------------------------------------'
-            print u'发布人：%s\n发布内容：\n%s\n页数：%s\t%s\t%s\t%s\t%s\t%s' \
-                  % (story[0], story[1], self.pageIndex, story[2], story[3], story[4], story[5], story[6])
+            print u'发布人：%s\n发布内容：\n%s\n页数：%s\t%s' \
+                  % (story[0], story[1], self.pageIndex, story[2])
 
     # 开始执行
     def start(self):
@@ -119,6 +115,3 @@ if __name__ == '__main__':
         category = 'hot'
     funnyThings = FunnyThings(category)
     funnyThings.start()
-	
-# test merge conflicts
-# master commit

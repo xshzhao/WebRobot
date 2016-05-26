@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python2.7
 # -*- coding=utf-8 -*-
 
 
@@ -134,6 +134,4 @@ print 'begin......'
 url = 'http://www.iteye.com'
 robot = NormalRobot("网络机器人", url, 5)
 robot.do_it()
-#dev commit somethings
-#2015/12/4
-#master do somethings
+

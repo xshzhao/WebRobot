@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python2.7
 # -*- coding=utf-8 -*-
 
 
@@ -134,5 +134,3 @@ if __name__ == '__main__':
     # 开始服务
     iteyeTechnology = IteyeTechnology(category)
     iteyeTechnology.start()
-	
-#master do somethings
